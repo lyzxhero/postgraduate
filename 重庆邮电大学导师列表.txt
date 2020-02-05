@@ -1,0 +1,94 @@
+EI/SCI检索7篇
+
+http://yjs.cqupt.edu.cn/info/1063/3154.htm 陈乔松(副教授，硕士生导师，博士)
+    - 主要研究方向图像处理和图像理解、人工智能及计算机视觉等
+    - 主要研究成果:包括图像质量评价系统、图像增强、识别和图像理解等相关技术
+
+http://yjs.cqupt.edu.cn/info/1063/3212.htm  陈功贵 硕士生导师
+    - 方向一：计算机技术、控制技术、人工智能在电力系统优化与控制中的应用
+    - 方向二：人工智能，机器学习。
+    期望研究生通过三年扎实学习,在导师指导下熟练掌握程序编写方法,既能达到硕士毕业的各项要求,又能毕业后为找到好的工作或继续深造奠定坚实的基础。
+
+http://yjs.cqupt.edu.cn/info/1063/3214.htm  方长杰 硕士生导师
+    - 主要研究领域包括最优化理论与算法、非光滑分析以及优化算法在信号处理等信息科学领域中的应用
+
+http://yjs.cqupt.edu.cn/info/1063/3215.htm  付蔚
+    - 主要研究物联网技术、智慧城市与智能家居方向
+
+
+http://yjs.cqupt.edu.cn/info/1063/2999.htm  高陈强
+    - 红外小目标检测、 红外图像分析、 监控视频分析、目标检测与跟踪、行为识别 、事件检测 、 深度学习
+    - 招生要求 
+        - 对图像和视频处理,以及机器学习有浓厚的兴趣。如果你以前接触较少，我们希望你报考前通过互联网快速地了解相关背景。然后问自己对它们是否有兴趣？如果真感兴趣，请联系我们。
+        - 喜欢写程序。我们研究组主要用Matlab,C/C++编程语言进行算法仿真（只要求会一种编程语言即可）。如果你有较好的编程基础，我们会优先考虑你。如果你编程基础不好，同时很讨厌编程，建议不要加入我们研究组。
+        - 有一定的英语阅读和写作能力。我们主要以英语阅读为主，因此，我们要求你至少过了英语四级。
+        - 有较好的数理知识。较好的线性代数、概率统计基础会对我们的专业学习有较大的帮助。
+
+http://yjs.cqupt.edu.cn/info/1063/3003.htm  胡学刚 硕士生导师
+    - 研究兴趣
+        - 图像处理、图像分割、运动目标检测与跟踪、机器视觉、非线性系统理论及应用
+
+
+http://yjs.cqupt.edu.cn/info/1063/3164.htm  雷大江
+    - 主要从事大规模机器学习、大数据分析与处理的研究及开发工作
+
+http://yjs.cqupt.edu.cn/info/1063/3478.htm  李红波，硕士生导师
+    - 主要研究方向：数字媒体、计算机视觉、信息工程，TRIZ理论
+
+http://yjs.cqupt.edu.cn/info/1063/3256.htm 李鹏华
+    - 主要从事量子神经网络及其应用的研究。近年来在神经网络理论及其在故障诊断、语音识别领域内
+
+
+http://yjs.cqupt.edu.cn/info/1063/3106.htm 李强
+    - 研究方向 音视频编码
+
+
+http://yjs.cqupt.edu.cn/info/1063/3167.htm
+http://yjs.cqupt.edu.cn/info/1063/3219.htm
+http://yjs.cqupt.edu.cn/info/1063/3099.htm
+http://yjs.cqupt.edu.cn/info/1063/3177.htm
+http://yjs.cqupt.edu.cn/info/1063/3149.htm
+http://yjs.cqupt.edu.cn/info/1063/3475.htm
+http://yjs.cqupt.edu.cn/info/1063/2906.htm
+http://yjs.cqupt.edu.cn/info/1063/3158.htm
+http://yjs.cqupt.edu.cn/info/1063/3157.htm
+http://yjs.cqupt.edu.cn/info/1063/3176.htm
+http://yjs.cqupt.edu.cn/info/1063/2913.htm
+http://yjs.cqupt.edu.cn/info/1063/3207.htm
+http://yjs.cqupt.edu.cn/info/1063/3207.htm
+
+
+
+通信概论               https://www.bilibili.com/video/av50599905?from=search&seid=998352684773406595   清华大学_李家同
+数据库系统原理          https://www.bilibili.com/video/av32704556?from=search&seid=1431333561122985006  浙江大学_陈岭
+计算机网络原理          https://www.bilibili.com/video/av25077091?from=search&seid=5008965672514268198  西安交大   
+计算机网络管理
+网络工程
+互联网及其应用
+计算机组成原理          https://www.bilibili.com/video/av58129929?from=search&seid=3363917128578150513        清华大学刘卫东
+微型计算机及接口技术     https://www.bilibili.com/video/av43305687?from=search&seid=17589368830008786133  东南大学
+计算机通信接口技术
+软件工程               https://www.bilibili.com/video/av67733286?from=search&seid=656869243761427932  
+
+http://www.nlpjob.com
+    - 计算机视觉
+    - npl自然语言处理
+    - 视频AI算法
+        - 精通C/C++、Matlab、Python等至少一门语言
+        - 在TPAMI,CVPR,ECCV,ICCV等领域内国际权威期刊或者顶级会议发表过paper的优先；
+        - 在Imagenet,MSCOCO,KITTI,VOC,MOT,VOT等领域内权威数据库上提交过结果并取得优异成绩者优先
+    - 深度学习视频算法研究
+        - 精通C/C++,python,熟悉LINUX开发
+        - 有深度学习工程化开发、计算机视觉解决方案落地经验优先
+        - 有opencv开发、CUDA研发、系统加速优化经验优先
+        - 有计算机视觉算法移植背景者优先
+
+    - 深度学习算法加速优化高级工程师
+        - 了解主流的深度学习框架，对TensorFlow，MxNet，caffe，Torch有过代码贡献的优先
+
+    - 深度学习视频算法研究员
+        - 机器学习，深度学习，计算机视觉等领域，硕士以上学历
+        - 熟悉深度学习框架如caffe，tensorflow，MXNet等其中一个或多个框架
+        - 熟悉计算机视觉和图像处理基本算法，有实际项目经验或者较好的研究成果
+        - 具备丰富的模型调参经验，对深度学习网络结构理解深刻；
+        - 具备良好的编程能力，熟悉C++/Python等编程语言，熟悉Linux系统；
