@@ -33,5 +33,9 @@ void showElement(PElement pEle){
 }
 
 PLinkedStack initLinkedStack(){
-    
+
+}
+
+PLinkedStack pushStack(PLinkedStack pStack,Element ele){
+
 }
