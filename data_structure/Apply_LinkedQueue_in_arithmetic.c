@@ -65,12 +65,12 @@ int main(void){
 
     // char exp[28] =  {'(','(','1','5','/','(','7','-','(','1','+','1',')',')',')','*','3',')','-','(','2','+','(','1','+','1',')',')'};
 
-    int vaildLen = 5;
-    char exp[100] = {'5','+','4','*','3'};
-    fillCharArrayPartly(exp,5);
+    int vaildLen = 9;
+    char exp[100] = {'5','+','4','*','3','+','2','*','4'};
+    fillCharArrayPartly(exp,9);
     PLinkedStack pStack = initLinkedStack();
     expressConvert(pStack,exp);
-
+    showArr(exp);
 }
 
 /**
@@ -92,26 +92,68 @@ void expressConvert(PLinkedStack pStack,char express[]){
 
     for (int i = 0; i < vaildLen; i++){
         char item = express[i];
-        enum OperatorType type = getOperatorType(item);
-        // printf("1:type=%d,item=%c\n",type,item);
-        //如果是操作数就记录在数组中
-        if(Number == type){
-            addArr(tempExp,item);
-            continue;
-        }
 
-        //如果是操作符 要么就入栈 要么就根据条件判断
-        if(PlusOrSubstract == type || MultipleOrDivide == type){
-            OperatorType stackTopOperator = getOperatorType(seeTopElement(pStack)->context);
-            if(0 == pStack->size || type < stackTopOperator){
-                pushStack(pStack,initElement(0,0,1,item));
+        enum OperatorType type = getOperatorType(item);
+        printf("操作类型是:%d,item=%c\n",type,item);
+        if(Number == type){
+            //第一个数字的情况
+            if(i == 0){
+                printf("    i=%d直接入栈\n",i);
+                addArr(tempExp,item);
                 continue;
             }
 
-            if(0 != pStack->size && type >= stackTopOperator){
-                char operator = pop(pStack)->context;
-                addArr(tempExp,operator);
+
+            //中间数字的情况
+            if(0 != i && i != vaildLen - 1){
+                char nextItem = express[i+1];
+                OperatorType nextType = getOperatorType(nextItem);
+
+                char prevItem = seeTopElement(pStack)->context;
+                OperatorType prevType = getOperatorType(prevItem);
+
+                printf("    i=%d,前一个操作符是%c,下一个操作符是%c\n",i,prevItem,nextItem);
+                addArr(tempExp,item);
+
+                if(nextType <= prevType){
+                    char operator = pop(pStack)->context;
+                    addArr(tempExp,operator);
+                }
                 continue;
+            }
+
+            //最后一个数字的情况
+            if(i == vaildLen - 1){
+                printf("    第一个数字的情况:i=%d,pStack->size=%d\n",i,pStack->size);
+                addArr(tempExp,item);
+                if(0 != pStack->size){
+                    for (int i = 0; i < pStack->size; i++){
+                        addArr(tempExp,pop(pStack)->context);
+                    }
+                }
+                continue;
+            }
+
+        }
+
+        // //如果是操作符 要么就入栈 要么就根据条件判断
+        if(PlusOrSubstract == type || MultipleOrDivide == type){
+            printf("    操作符%c ",item);
+            if(0 == pStack->size){
+                printf(" 栈为空入栈 \n");
+                pushStack(pStack,initElement(0,0,1,item));
+                continue;
+            }else{
+                char prevOperator = seeTopElement(pStack)->context;
+                OperatorType prevType = getOperatorType(prevOperator);
+                printf("  前一个操作符是%c ",prevOperator);
+                if(type > prevType){
+                    printf(" 由于前一个操作符是%c 所以把%c入栈\n",prevOperator,item);
+                    pushStack(pStack,initElement(0,0,1,item));
+                }else{
+                    char operator = pop(pStack)->context;
+                    addArr(tempExp,operator);
+                }
             }
         }
     }
