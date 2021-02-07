@@ -81,7 +81,10 @@ int main(void){
  *    eg:
  *       char exp1[30] = {'1','+','2'}此数组的有效长度为3
  *       char exp2[30] = {'2','+','3','-','7'}此数组的有效长度为5
- * 此方法能解析中置表达式的最大长度默认为100
+ * 此方法能解析中置表达式的最大长度默认为100,超过100就无法解析
+ * 数组使用A字符表示占位符即表示没有使用
+ *      例如  {'1','+','3','A'} 表示一个长度为100的数组其中前3个使用了其他的当作位置当作
+ * 最后结果在exp数组中
  * 
  **/ 
 void expressConvert(PLinkedStack pStack,char express[]){
@@ -96,44 +99,7 @@ void expressConvert(PLinkedStack pStack,char express[]){
         enum OperatorType type = getOperatorType(item);
         printf("操作类型是:%d,item=%c\n",type,item);
         if(Number == type){
-            //第一个数字的情况
-            if(i == 0){
-                printf("    i=%d直接入栈\n",i);
-                addArr(tempExp,item);
-                continue;
-            }
-
-
-            //中间数字的情况
-            if(0 != i && i != vaildLen - 1){
-                char nextItem = express[i+1];
-                OperatorType nextType = getOperatorType(nextItem);
-
-                char prevItem = seeTopElement(pStack)->context;
-                OperatorType prevType = getOperatorType(prevItem);
-
-                printf("    i=%d,前一个操作符是%c,下一个操作符是%c\n",i,prevItem,nextItem);
-                addArr(tempExp,item);
-
-                if(nextType <= prevType){
-                    char operator = pop(pStack)->context;
-                    addArr(tempExp,operator);
-                }
-                continue;
-            }
-
-            //最后一个数字的情况
-            if(i == vaildLen - 1){
-                printf("    第一个数字的情况:i=%d,pStack->size=%d\n",i,pStack->size);
-                addArr(tempExp,item);
-                if(0 != pStack->size){
-                    for (int i = 0; i < pStack->size; i++){
-                        addArr(tempExp,pop(pStack)->context);
-                    }
-                }
-                continue;
-            }
-
+            addArr(tempExp,item);
         }
 
         // //如果是操作符 要么就入栈 要么就根据条件判断
@@ -143,21 +109,31 @@ void expressConvert(PLinkedStack pStack,char express[]){
                 printf(" 栈为空入栈 \n");
                 pushStack(pStack,initElement(0,0,1,item));
                 continue;
-            }else{
-                char prevOperator = seeTopElement(pStack)->context;
-                OperatorType prevType = getOperatorType(prevOperator);
-                printf("  前一个操作符是%c ",prevOperator);
-                if(type > prevType){
-                    printf(" 由于前一个操作符是%c 所以把%c入栈\n",prevOperator,item);
-                    pushStack(pStack,initElement(0,0,1,item));
-                }else{
-                    char operator = pop(pStack)->context;
-                    addArr(tempExp,operator);
-                }
             }
+
+            char prevOperator = seeTopElement(pStack)->context;
+            OperatorType prevType = getOperatorType(prevOperator);
+            
+            printf("  前一个操作符是%c ",prevOperator);
+            if(type > prevType){
+                printf(" 由于前一个操作符是%c 所以把%c入栈\n",prevOperator,item);
+                pushStack(pStack,initElement(0,0,1,item));
+                continue;
+            }
+
+            //note:type <= prevType
+            char operator = pop(pStack)->context;
+            addArr(tempExp,operator);
+            pushStack(pStack,initElement(0,0,1,item));
         }
     }
 
+    int count = pStack->size;
+    for (int i = 0; i < count; i++){
+        char item = pop(pStack)->context;
+        addArr(tempExp,item);
+    }
+    
     copyValueToArr(tempExp,express);
     return ;
 }
@@ -279,12 +255,6 @@ OperatorType getOperatorType(char item){
     return Number;
 }
 
-// enum OperatorType charToEnum(char item){
-//     if(){
-
-//     }
-// }
-
 void showStack(PLinkedStack pStack){
     if(NULL == pStack){
         printf("此栈为空!无法show");
@@ -353,8 +323,7 @@ PLinkedStack pushStack(PLinkedStack pStack,PElement ele){
 
     pStack->top=ele;
     ele->nextElement=NULL;
-    pStack->size++;
-
+    pStack->size = pStack->size + 1;
     return pStack;
 }
 
@@ -377,6 +346,8 @@ PElement pop(PLinkedStack pStack){
 
     pele->prevElement->nextElement=NULL;
     pele->prevElement=NULL;
+
+    pStack->size = pStack->size - 1;
 
     return pele;
 }
