@@ -12,6 +12,9 @@ typedef struct Node{
 PNode initNode(int number,char remark[10]);
 void find(PNode node,int targetNumber);
 void showNode(PNode node);
+PNode findNonRecursion(PNode node,int targetNumber);
+int insert(PNode node,int targetNumber);
+
 
 
 /**
@@ -49,7 +52,62 @@ int main(void){
     node40->leftChild = node33;
     node40->rightSibling = node49;
 
-    find(node30,16);
+    // find(node30,16);
+    // PNode node = findNonRecursion(node30,4);
+    // if(NULL == node){
+    //     printf("查找失败!");
+    // }else{
+    //     printf("result = %d  %s \n",node->number,node->remark);
+    // }
+
+    insert(node30,9);
+    find(node30,9);
+}
+
+int insert(PNode node,int targetNumber){
+    int number = node->number;
+    if(number == targetNumber){
+        return 0;
+    }
+
+    PNode nextNode = targetNumber > number ? node->rightSibling : node->leftChild;
+    if(NULL == nextNode){
+        PNode targetNode = (PNode)malloc(sizeof(Node));
+        targetNode->number=targetNumber;
+        char remark[10] = {'n','e','w'};
+        strcpy(targetNode->remark,remark);
+        if(targetNumber > number){
+            node->rightSibling = targetNode;
+        }else{
+            node->leftChild = targetNode;
+        }
+        return 1;
+    }
+
+    return insert(nextNode,targetNumber);
+
+}
+
+PNode findNonRecursion(PNode node,int targetNumber){
+    if(NULL == node){
+        return NULL;
+    }
+    if(targetNumber == node->number){
+        return node;
+    }
+
+    PNode tempNode = node;
+    
+    while(NULL != tempNode){
+        int number = tempNode->number;
+        if(number == targetNumber){
+            return tempNode;
+        }
+        tempNode = targetNumber > number ? tempNode->rightSibling : tempNode->leftChild;
+    }
+
+    return NULL;
+
 }
 
 void find(PNode node,int targetNumber){
