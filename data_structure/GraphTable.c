@@ -8,25 +8,13 @@ typedef struct Edge{
     struct Edge * nextEdge;
 }Edge,*PEdge;
 
-
 typedef struct {
     char tag;
     PEdge PEdge;
 }Node,*PNode;
 
-typedef struct {
-    PNode nodes[5];
-    int edges[5][5];
-}Graph,*PGraph;
-void matrixExpress();
-PNode initNode(char tag);
 PEdge initEdge(int vertexIndex);
-void tableExpress();
 
- 
-int main(void){
-   tableExpress();
-}
 
 /*
  * 邻接表法
@@ -41,6 +29,14 @@ int main(void){
  *   2 C
  *   3 D
  *   4 E
+ * 
+ * 1、adjacent判断是否存在某条边
+2、Neighbors判断某节点所有的边
+3、insertVertex插入定点x
+4、deleteVertex删除定点x
+5、addEdge添加边
+6、removeEdge
+7、firstNeighbor
  **/
 void tableExpress(){
     PNode A = initNode('A');
@@ -76,60 +72,9 @@ void tableExpress(){
     }
 }
 
-
-
 PEdge initEdge(int vertexIndex){
     PEdge edge = (PEdge)malloc(sizeof(Node));
     edge->vertexIndex = vertexIndex;
     edge->nextEdge = NULL;
     return edge;
-}
-
-void showNodeArray(PNode pNodes[],int len){
-    for(int i = 0; i < len; i++){
-         
-    }
-}
-/**
- * 
- * 对上图的邻接矩阵表示法
- * 用一维数组表示各个定点
- * 用二维数组表示各个定点之间的关系即边
- *      A
- *   /     \
- *  B       C
- *  |       |
- *  D ----- E
- **/ 
-void matrixExpress(){
-    PNode pNodes[5]={initNode('A'),initNode('B'),initNode('C'),initNode('D'),initNode('E')};
-    int edges[5][5] = {{0,1,1,0,0},
-                       {1,0,0,1,0},
-                       {1,0,0,0,1},
-                       {0,1,0,0,1},
-                       {0,0,1,1,0}
-                       };
-
-    for (int i = 0; i < 5; i++){
-        if(i == 0){
-            printf(" \\ %c ",pNodes[i]->tag);
-            continue;
-        }
-        printf(" %c ",pNodes[i]->tag);
-    }
-    printf("\n");
-    
-    for (int i = 0; i < 5; i++){
-        printf("%c ",pNodes[i]->tag);
-        for (int j = 0; j < 5; j++){
-            printf(" %d ",edges[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-PNode initNode(char tag){
-    PNode item = (PNode)malloc(sizeof(Node));
-    item->tag = tag;
-    return item;
 }
