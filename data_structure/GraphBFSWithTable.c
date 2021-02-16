@@ -18,9 +18,10 @@ typedef struct {
 }Node,*PNode;
 
 typedef struct {
-    PNode pNodes[10];
+    PNode pNodes[7];
     int len;
 }GraphWithTable,*PGraphWithTable;
+
 void showGraphWithTable(PGraphWithTable graph);
 
 
@@ -28,6 +29,26 @@ void showGraphWithTable(PGraphWithTable graph);
 int main(void){
     printf("------------\n");
     // showGraphMatrixGraph(pMatrixGraph);
+}
+
+/**
+ *              0
+ *          /       \
+ *         1         2
+ *       /   \     /
+ *      3 --- 4   5
+ *     /
+ *    6     
+ * 
+ * 为了简便起见,使用数字标识节点且和数组的下标完全相同
+ * 
+ **/ 
+void linkedListExpress(PGraphWithTable graph){
+    graph->len = 7;
+    for (int i = 0; i < graph->len; i++){
+        
+    }
+    
 }
 
 void showGraphWithTable(PGraphWithTable graph){
